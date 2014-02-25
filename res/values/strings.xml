@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Radio ultra</string>
+    <string name="sBroadband">Broadband</string>
+    <string name="sCurrentlyPlaying">Currentrly Playing</string>
+    <string name="sCustom">Custom</string>
+    <string name="sDirectConnection">Direct Connection</string>
+    <string name="sProxyServer">Proxy server</string>
+    <string name="sNotPlaying">Not playing</string>
+    <string name="sOpen">Open</string>
+    <string name="sUltra24aacUrl">http://mp3.radioultra.ru/ultra-24.aac.m3u</string>
+    <string name="sUltra48aacUrl">http://mp3.radioultra.ru/ultra-48.aac.m3u</string>
+    <string name="sUltra56aacUrl">http://mp3.radioultra.ru/ultra-56.aac.m3u</string>
+    <string name="sUltra64mp3Url">http://mp3.radioultra.ru/ultra-64.mp3.m3u</string>
+    <string name="sUltra128mp3Url">http://mp3.radioultra.ru/ultra-128.mp3.m3u</string>
+    <string name="sPresets">Presets</string>
+    <string name="sUserPassServerPort">[user:pass@]server:port</string>
+    <string name="sUltra24aac">Ultra AAC24k</string>
+    <string name="sUltra48aac">Ultra AAC48k</string>
+    <string name="sUltra56aac">Ultra AAC56k</string>
+    <string name="sUltra64mp3">Ultra64kMP3</string>
+    <string name="sUltra128mp3">Ultra128kMP3</string>
+    <string name="sStop">Stop</string>
+</resources>

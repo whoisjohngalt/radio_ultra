@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:fillViewport="true" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/u_b"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sPresets"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+</TextView>
+    <TableLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/ch1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/sUltra24aacUrl"
+                android:onClick="Play"
+                android:tag="0"
+                android:text="@string/sUltra24aac" />
+
+            <Button
+                android:id="@+id/ch3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/sUltra48aacUrl"
+                android:onClick="Play"
+                android:tag="2"
+                android:text="@string/sUltra48aac" >
+
+</Button>
+
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/ch5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/sUltra56aacUrl"
+                android:onClick="Play"
+                android:tag="4"
+                android:text="@string/sUltra56aac" />
+
+            <Button
+                android:id="@+id/ch7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/sUltra64mp3Url"
+                android:onClick="Play"
+                android:tag="6"
+                android:text="@string/sUltra64mp3" />
+
+            <Button
+                android:id="@+id/ch9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/sUltra128mp3Url"
+                android:onClick="Play"
+                android:tag="8"
+                android:text="@string/sUltra128mp3" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/sCustom"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+</TextView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/custom"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:text="@string/sUltra24aacUrl" >
+</EditText>
+
+        <Button
+            android:id="@+id/opencustom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="Play"
+            android:text="@string/sOpen" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="79dp"
+        android:layout_height="wrap_content"
+        android:onClick="@string/sStop"
+        android:text="@string/sStop"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/sCurrentlyPlaying"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout android:layout_weight="1" android:orientation="vertical" android:layout_height="0dip" android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/status1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.17"
+            android:gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+</TextView>
+
+        <TextView
+            android:id="@+id/status2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.18"
+            android:gravity="center_horizontal"
+            android:text="@string/sNotPlaying"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+</TextView>
+
+        <TextView
+            android:id="@+id/status3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:autoLink="web"
+            android:gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+</TextView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/sProxyServer"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+</TextView>
+
+    <EditText
+        android:id="@+id/proxy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sUserPassServerPort"
+        android:imeOptions="actionDone"
+        android:inputType="text" >
+</EditText>
+
+    <CheckBox
+        android:id="@+id/proxydirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sDirectConnection" >
+</CheckBox>
+</LinearLayout>
+    </ScrollView>
