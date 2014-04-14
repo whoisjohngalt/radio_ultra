@@ -11,14 +11,23 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
+//import android.os.Bundle;
+//import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
 
 import com.un4seen.bass.BASS;
+import android.R.layout;
 
 public class NetRadio extends Activity {
 	int req; // request number/counter
@@ -165,6 +174,7 @@ public class NetRadio extends Activity {
 	            handler.postDelayed(timer, 50); // start prebuffer monitoring
 		}
 	}
+	
 	public void Stop(View v)
 	{
 		((TextView)findViewById(R.id.status2)).setText("Stoped.");
@@ -188,7 +198,9 @@ public class NetRadio extends Activity {
 		}
 		new Thread(new OpenURL(url)).start();
 	}
-
+	
+	private static final String TAG = "MainActivity";
+	private MusicIntentReceiver myReceiver;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -243,6 +255,8 @@ public class NetRadio extends Activity {
 	        }
 	    };
 	    this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+	    //setContentView(R.layout.activity_main);
+	    myReceiver = new MusicIntentReceiver();
     }
     
     @Override
@@ -251,4 +265,34 @@ public class NetRadio extends Activity {
 
     	super.onDestroy();
     }
+
+@Override public void onResume() {
+    IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
+    registerReceiver(myReceiver, filter);
+    super.onResume();
+}
+
+private class MusicIntentReceiver extends BroadcastReceiver {
+    @Override public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals(Intent.ACTION_HEADSET_PLUG)) {
+            int state = intent.getIntExtra("state", -1);
+            switch (state) {
+            case 0:
+                Log.d(TAG, "Headset is unplugged");
+                Stop(findViewById(R.id.button1));
+                break;
+            case 1:
+                Log.d(TAG, "Headset is plugged");
+                break;
+            default:
+                Log.d(TAG, "I have no idea what the headset state is");
+            }
+        }
+    }
+}
+
+@Override public void onPause() {
+    unregisterReceiver(myReceiver);
+    super.onPause();
+}
 }
